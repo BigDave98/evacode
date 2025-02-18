@@ -7,6 +7,15 @@ const API = axios.create({
   baseURL: baseURL,
 });
 
+export const loginWithGoogleAPI = async (credential: string) => {
+  try {
+    const response = await API.post('/api/auth/google', { credential });
+    return response.data;
+  } catch (error: any) {
+    throw new Error(error.response?.data?.error || 'Google login failed');
+  }
+};
+
 export const signUpAPI = async (userData: SignupState) => {
   try {
     const response = await API.post('/api/supabase/signup', userData);

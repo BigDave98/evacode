@@ -10,6 +10,7 @@ import { signInWithOTPAPI } from '../services/api';
 import { loginUserWithOTPAsync } from '../Redux/features/userSlice';
 import { useRive, UseRiveParameters } from '@rive-app/react-canvas';
 import styles from '../components/LoadingOverlay/LoadingOverlay.module.css';
+import { GoogleLogin } from '@react-oauth/google';
 
 interface LoginError {
   email?: string;
@@ -119,6 +120,30 @@ const Login: React.FC = () => {
             handleEmailSubmit={handleEmailSubmit}
             handleOTPSubmit={handleOTPSubmit}
           />
+          <div className="mt-6">
+              <GoogleLogin
+                onSuccess={async (credentialResponse) => {
+                  setIsLoading(true);
+                  try {
+                    const authData = await loginWithGoogleAPI(credentialResponse.credential!);
+                    setAuthToken(authData);
+                    // Redirecionamento existente...
+                  } catch (error) {
+                    setError({ general: error.message });
+                  } finally {
+                    setIsLoading(false);
+                  }
+                }}
+                onError={() => {
+                  setError({ general: 'Google login failed' });
+                }}
+                useOneTap
+                theme="filled_blue"
+                size="medium"
+                text="continue_with"
+                shape="rectangular"
+              />
+            </div>
         </div>
       </div>
     </Layout>

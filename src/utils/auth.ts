@@ -1,6 +1,14 @@
 import { CatFormData } from '../types/cat.types';
 import { AuthToken } from './types';
 
+export interface AuthToken {
+  token: string;
+  expiresIn: string;
+  email: string;
+  photo?: string;
+  name?: string;
+}
+
 export const setAuthToken = (authData: AuthToken) => {
   console.log("setAuthToken", authData);
 
@@ -57,17 +65,17 @@ export const clearTokens = () => {
 export const isAuthenticated = (): null | any => {
   const token = localStorage.getItem('token');
   const expiresAt = localStorage.getItem('expiresAt');
-  
+
   if (!token || !expiresAt) return null;
-  
+
   const isValid = new Date().getTime() < parseInt(expiresAt);
   if(!isValid) return null;
-  
+
   try {
     // Get user info from token
     const payload = token.split('.')[1];
     const user = JSON.parse(atob(payload));
-    
+
     return user;
   } catch (error) {
     console.error('Error decoding token:', error);
