@@ -1,50 +1,28 @@
-# React + TypeScript + Vite
+## **Important Note**
+I did not run the project on my local machine due to a suspicious function found in the `authMiddleware` file of the backend. For security reasons, I decided not to execute the system locally. However, most of other parts of the project were developed but not tested since i not executed the code.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## **Implemented Features**
+1. **Google OAuth Authentication**:
+   - Complete integration with the Google API for user login and registration.
+   - Secure storage of JWT tokens.
+   - Display of user profile information (name, email, and photo).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. **Project Structure**:
+   - Frontend developed with **React** and **Vite**.
+   - Styling using **Tailwind CSS**.
+   - State management with **Redux Toolkit**.
 
-## Expanding the ESLint configuration
+3. **API Integration**:
+   - Communication with the backend for authentication and data management.
+   - Use of **Axios** for HTTP requests.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+4. **Responsiveness**:
+   - Adaptive layout for different devices (mobile, tablet, and desktop).
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## **Unimplemented Features**
+- **Page based on the Figma template**:
+  - The creation of the visual interface from the Figma design was not completed. However, the project structure is ready to receive the layout.
