@@ -1,5 +1,6 @@
 ## **Important Note**
 I did not run the project on my local machine due to a suspicious function found in the `authMiddleware` file of the backend. For security reasons, I decided not to execute the system locally. However, most of other parts of the project were developed but not tested since i not executed the code.
+Additionally, since it is not recommended to share Google OAuth tokens publicly, I did not include my token in the project. You will need to provide your own Google OAuth credentials to run the authentication feature.
 
 ---
 
